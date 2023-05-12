@@ -47,10 +47,10 @@ public class Ingenieros extends SeresVivos {
     
     @Override
     public String toString() {
-        return "Ingenieros:\n" + 
-                "\nNumero RRHH: " + numeroRRHH + 
-                "\nNombre de usuario del ingeniero: " + nombreUsuario + 
-                "\nContraseña: " + contraseña;
+        return super.toString() + "Ingenieros:\n" + 
+                                  "\nNumero RRHH: " + numeroRRHH + 
+                                  "\nNombre de usuario del ingeniero: " + nombreUsuario + 
+                                  "\nContraseña: " + contraseña;
     }
 
     

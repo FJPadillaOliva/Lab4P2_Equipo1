@@ -65,6 +65,6 @@ public abstract class MediosTransporte extends Planetas {
                 "\nLos primates asignados son: " + primatesAsignados;
     }
     
-    
+    public abstract void viaje();
     
 }
