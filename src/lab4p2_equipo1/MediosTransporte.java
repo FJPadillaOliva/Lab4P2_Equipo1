@@ -11,10 +11,11 @@ public abstract class MediosTransporte extends Planetas {
     public MediosTransporte() {
     }
 
-    public MediosTransporte(int cantTanque, int kmsTanque, int cantGalones) {
+    public MediosTransporte(int cantTanque, int kmsTanque, int cantGalones, ArrayList primates) {
         this.cantTanque = cantTanque;
         this.kmsTanque = kmsTanque;
         this.cantGalones = cantGalones;
+        this.primatesAsignados = primates;
     }
 
     public MediosTransporte(int cantTanque, int kmsTanque, int cantGalones, String nombre, int distancia) {
@@ -65,6 +66,5 @@ public abstract class MediosTransporte extends Planetas {
                 "\nLos primates asignados son: " + primatesAsignados;
     }
     
-    public abstract void viaje();
     
 }

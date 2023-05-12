@@ -1,5 +1,6 @@
 package lab4p2_equipo1;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class AereoNormal extends MediosTransporte {
@@ -18,12 +19,13 @@ public class AereoNormal extends MediosTransporte {
         this.cantMotores = cantMotores;
     }
 
-    public AereoNormal(int cantMaxPasajeros, int longitudTotal, int cantMotores, int cantTanque, int kmsTanque, int cantGalones) {
-        super(cantTanque, kmsTanque, cantGalones);
+    public AereoNormal(int cantMaxPasajeros, int longitudTotal, int cantMotores, int cantTanque, int kmsTanque, int cantGalones, ArrayList primates) {
+        super(cantTanque, kmsTanque, cantGalones, primates);
         this.cantMaxPasajeros = cantMaxPasajeros;
         this.longitudTotal = longitudTotal;
         this.cantMotores = cantMotores;
     }
+    
 
     public AereoNormal(int cantMaxPasajeros, int longitudTotal, int cantMotores, int cantTanque, int kmsTanque, int cantGalones, String nombre, int distancia) {
         super(cantTanque, kmsTanque, cantGalones, nombre, distancia);
