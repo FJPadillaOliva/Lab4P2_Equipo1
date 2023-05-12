@@ -44,10 +44,13 @@ public class Ingenieros extends SeresVivos {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-
+    
     @Override
     public String toString() {
-        return "Ingenieros{" + "numeroRRHH=" + numeroRRHH + ", nombreUsuario=" + nombreUsuario + ", contrase\u00f1a=" + contraseña + '}';
+        return "Ingenieros:\n" + 
+                "\nNumero RRHH: " + numeroRRHH + 
+                "\nNombre de usuario del ingeniero: " + nombreUsuario + 
+                "\nContraseña: " + contraseña;
     }
 
     

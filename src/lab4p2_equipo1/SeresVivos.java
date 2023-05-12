@@ -61,7 +61,12 @@ public class SeresVivos {
 
     @Override
     public String toString() {
-        return "SeresVivos{" + "nombre=" + nombre + ", grupoSanguineo=" + grupoSanguineo + ", sexo=" + sexo + ", altura=" + altura + ", peso=" + peso + '}';
+        return super.toString() + "Seres vivos:\n" + 
+                                  "\nNombre del ser vivo: " + nombre + 
+                                  "\nGrupo sanguineo del ser vivo: " + grupoSanguineo + 
+                                  "\nSexo del ser vivo: " + sexo + 
+                                  "\nAltura del ser vivo: " + altura +    
+                                  "\nPeso del ser vivo: " + peso;
     }
     
     

@@ -57,6 +57,7 @@ public class AereoNormal extends MediosTransporte {
     }
     
     public void viaje(Planetas planeta) {
+        
         double consumo = (planeta.getDistancia()* 0.15) + (25 + random.nextInt(100));
         if (this.cantTanque >= cantGalones && this.primatesAsignados.isEmpty()) {
             for (Primates primatesAsignados : primatesAsignados) {
@@ -70,7 +71,16 @@ public class AereoNormal extends MediosTransporte {
             }
         } else {
             System.out.println("No se puede realizar el viaje ");
-        }
-        
+        }   
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Aereo normal:\n" + 
+                                  "\nCantidad maxima de pasajeros: " + cantMaxPasajeros + 
+                                  "\nLongitud total: " + longitudTotal + 
+                                  "\nCantidad de motores: " + cantMotores;
+    }
+    
+    
 }

@@ -30,7 +30,9 @@ public class Planetas {
 
     @Override
     public String toString() {
-        return "Planetas{" + "nombre=" + nombre + ", distancia=" + distancia + '}';
+        return super.toString() + "Planetas:\n" + 
+                                  "\nNombre del planeta: " + nombre + 
+                                  "\nDistancia: " + distancia;
     }
     
     
