@@ -2,9 +2,9 @@ package lab4p2_equipo1;
 
 public class Primates extends SeresVivos {
     MediosTransporte transporteAsignado;
-    private double cantComida;
-    private double cantComidaKm;
-    private String lugarNacimiento;
+    protected double cantComida;
+    protected double cantComidaKm;
+    protected String lugarNacimiento;
 
     public Primates() {
     }
@@ -58,7 +58,11 @@ public class Primates extends SeresVivos {
 
     @Override
     public String toString() {
-        return "Primates{" + "transporteAsignado=" + transporteAsignado + ", cantComida=" + cantComida + ", cantComidaKm=" + cantComidaKm + ", lugarNacimiento=" + lugarNacimiento + '}';
+        return "Primates:\n" + 
+                "\nTransporte asignado al primate: " + transporteAsignado + 
+                "\nCantidad de comida: " + cantComida + 
+                "\nCantidad de comida que come por KM: " + cantComidaKm + 
+                "\nLugar de nacimiento de los primates: " + lugarNacimiento;
     }
     
     

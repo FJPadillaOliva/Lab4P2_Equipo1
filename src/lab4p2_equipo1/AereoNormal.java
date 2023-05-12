@@ -18,8 +18,15 @@ public class AereoNormal extends MediosTransporte {
         this.cantMotores = cantMotores;
     }
 
-    public AereoNormal(int cantMaxPasajeros, int longitudTotal, int cantMotores, int cantTanque, int kmsTanque) {
-        super(cantTanque, kmsTanque);
+    public AereoNormal(int cantMaxPasajeros, int longitudTotal, int cantMotores, int cantTanque, int kmsTanque, int cantGalones) {
+        super(cantTanque, kmsTanque, cantGalones);
+        this.cantMaxPasajeros = cantMaxPasajeros;
+        this.longitudTotal = longitudTotal;
+        this.cantMotores = cantMotores;
+    }
+
+    public AereoNormal(int cantMaxPasajeros, int longitudTotal, int cantMotores, int cantTanque, int kmsTanque, int cantGalones, String nombre, int distancia) {
+        super(cantTanque, kmsTanque, cantGalones, nombre, distancia);
         this.cantMaxPasajeros = cantMaxPasajeros;
         this.longitudTotal = longitudTotal;
         this.cantMotores = cantMotores;
@@ -50,10 +57,16 @@ public class AereoNormal extends MediosTransporte {
     }
     
     public void viaje(Planetas planeta) {
-        if (this.cantTanque >= kmsTanque && this.primatesAsignados.isEmpty()) {
+        double consumo = (planeta.getDistancia()* 0.15) + (25 + random.nextInt(100));
+        if (this.cantTanque >= cantGalones && this.primatesAsignados.isEmpty()) {
             for (Primates primatesAsignados : primatesAsignados) {
-                double consumo = (planeta.getDistancia()* 0.15) + (25 + random.nextInt(100));
-                primatesAsignados.getCantComida();
+                if (primatesAsignados.getCantComida() >= primatesAsignados.getCantComidaKm() * planeta.getDistancia()) {
+                    int comida = (int) ((primatesAsignados.getCantComida()) - (primatesAsignados.getCantComidaKm()));
+                    primatesAsignados.setCantComida(comida);
+                    cantGalones = (int) (cantGalones - consumo);
+                } else {
+                    System.out.println("los monos imbeciles no tiene comida, no se puede viajar");
+                }  
             }
         } else {
             System.out.println("No se puede realizar el viaje ");

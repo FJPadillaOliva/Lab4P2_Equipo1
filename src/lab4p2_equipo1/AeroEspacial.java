@@ -14,8 +14,14 @@ public class AeroEspacial extends MediosTransporte {
         this.esDeCombate = esDeCombate;
     }
 
-    public AeroEspacial(String tipoCombustible, boolean esDeCombate, int cantTanque, int kmsTanque) {
-        super(cantTanque, kmsTanque);
+    public AeroEspacial(String tipoCombustible, boolean esDeCombate, int cantTanque, int kmsTanque, int cantGalones) {
+        super(cantTanque, kmsTanque, cantGalones);
+        this.tipoCombustible = tipoCombustible;
+        this.esDeCombate = esDeCombate;
+    }
+
+    public AeroEspacial(String tipoCombustible, boolean esDeCombate, int cantTanque, int kmsTanque, int cantGalones, String nombre, int distancia) {
+        super(cantTanque, kmsTanque, cantGalones, nombre, distancia);
         this.tipoCombustible = tipoCombustible;
         this.esDeCombate = esDeCombate;
     }
@@ -36,21 +42,28 @@ public class AeroEspacial extends MediosTransporte {
         this.esDeCombate = esDeCombate;
     }
 
-    @Override
-    public String toString() {
-        return "AeroEspacial{" + "tipoCombustible=" + tipoCombustible + ", esDeCombate=" + esDeCombate + '}';
-    }  
-
-    
     public void viaje(Planetas planeta) {
-        if (this.cantTanque >= kmsTanque && this.primatesAsignados.isEmpty()) {
+        double consumo = ((planeta.getDistancia()* 0.32) + (25 + random.nextInt(35) + 3) * 3/2);
+        if (this.cantTanque >= cantGalones && this.primatesAsignados.isEmpty()) {
             for (Primates primatesAsignados : primatesAsignados) {
-                double consumo = ((planeta.getDistancia()* 0.32) + (25 + random.nextInt(35) + 3) * 3/2);
-                primatesAsignados.getCantComida();
+                if (primatesAsignados.getCantComida() >= primatesAsignados.getCantComidaKm() * planeta.getDistancia()) {
+                    int comida = (int) ((primatesAsignados.getCantComida()) - (primatesAsignados.getCantComidaKm()));
+                    primatesAsignados.setCantComida(comida);
+                    cantGalones = (int) (cantGalones - consumo);
+                } else {
+                    System.out.println("los monos imbeciles no tiene comida, no se puede viajar");
+                }  
             }
         } else {
             System.out.println("No se puede realizar el viaje ");
         }
         
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "AeroEspacial{" + "tipoCombustible=" + tipoCombustible + ", esDeCombate=" + esDeCombate + '}';
+    }
+    
+    
 }
