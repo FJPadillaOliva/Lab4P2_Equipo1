@@ -41,10 +41,16 @@ public class AeroEspacial extends MediosTransporte {
         return "AeroEspacial{" + "tipoCombustible=" + tipoCombustible + ", esDeCombate=" + esDeCombate + '}';
     }  
 
-    public double consumo(){
-        double consumo;
-        Planetas planeta = new Planetas();
-        consumo = ((planeta.getDistancia() * 0.32) + (25 + random.nextInt(35)+ 3)) * 3/2 ;
-        return consumo;
+    
+    public void viaje(Planetas planeta) {
+        if (this.cantTanque >= kmsTanque && this.primatesAsignados.isEmpty()) {
+            for (Primates primatesAsignados : primatesAsignados) {
+                double consumo = ((planeta.getDistancia()* 0.32) + (25 + random.nextInt(35) + 3) * 3/2);
+                primatesAsignados.getCantComida();
+            }
+        } else {
+            System.out.println("No se puede realizar el viaje ");
+        }
+        
     }
 }

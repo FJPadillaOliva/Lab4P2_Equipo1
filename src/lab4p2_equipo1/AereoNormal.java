@@ -49,10 +49,15 @@ public class AereoNormal extends MediosTransporte {
         this.cantMotores = cantMotores;
     }
     
-    public double consumo(){
-        double consumo;
-        Planetas planeta = new Planetas();
-        consumo = (planeta.getDistancia() * 0.15) + (25 + random.nextInt(100));
-        return consumo;
+    public void viaje(Planetas planeta) {
+        if (this.cantTanque >= kmsTanque && this.primatesAsignados.isEmpty()) {
+            for (Primates primatesAsignados : primatesAsignados) {
+                double consumo = (planeta.getDistancia()* 0.15) + (25 + random.nextInt(100));
+                primatesAsignados.getCantComida();
+            }
+        } else {
+            System.out.println("No se puede realizar el viaje ");
+        }
+        
     }
 }

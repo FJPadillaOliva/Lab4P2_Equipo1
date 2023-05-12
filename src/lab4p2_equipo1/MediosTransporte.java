@@ -3,9 +3,9 @@ package lab4p2_equipo1;
 import java.util.ArrayList;
 
 public abstract class MediosTransporte extends Planetas {
-    private int cantTanque;
-    private int kmsTanque;
-    private ArrayList<Primates> primatesAsignados = new ArrayList();
+    protected int cantTanque;
+    protected int kmsTanque;
+    protected ArrayList<Primates> primatesAsignados = new ArrayList();
 
     public MediosTransporte() {
         
@@ -45,7 +45,6 @@ public abstract class MediosTransporte extends Planetas {
         return "MediosTransporte{" + "cantTanque=" + cantTanque + ", kmsTanque=" + kmsTanque + ", primatesAsignados=" + primatesAsignados + '}';
     }
     
-    public abstract double consumo();
     
     
 }
